@@ -1,4 +1,4 @@
-var PLAY=1,END=0,SUPER=2;
+var PLAY=1,END=0;
 var gameState=PLAY;
 var animation="player";
 
@@ -147,12 +147,16 @@ function draw(){
     monsterGroup.destroyEach();
     swordGroup.destroyEach();
     obstacleGroup.destroyEach();
-    gameState=SUPER;
-  
+    spawnVillian();
 
   }
 
-
+  
+  spawnCoins();
+  spawnObstacles();
+  spawnPower();
+  spawnMonster();
+ 
  
   drawSprites();
   textSize(25);
@@ -170,10 +174,6 @@ function draw(){
     fill("yellow");
     text("Game Over!!!!",width/2-100,height/2)
 
-  }
-  if(gameState===SUPER){
-    spawnVillian();
-    drawSprites();
   }
   player.collide(invisibleGround);
 
